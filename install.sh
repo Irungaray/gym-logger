@@ -1,6 +1,6 @@
 #!/bin/bash
 INSTALL_PATH="bin"
-ALIAS="\\nalias glog=\"bash ~/.bin/gym-logger.sh\" \\n"
+ALIAS="\\nalias glog=\"bash ~/bin/gym-logger.sh\" \\n"
 FILENAME="gym-logger.sh"
 
 cd $HOME
