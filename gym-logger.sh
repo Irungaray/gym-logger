@@ -1,6 +1,6 @@
 #!/bin/bash
-BRANCH_GIT="logs"
-NOW=$(date +"%A %u de %B %Y - Día %j")
+BRANCH_GIT="log"
+NOW=$(date +"%A %d de %B - %Y")
 LOG_FILE="gym-logs.txt"
 
 if [ ! -e  ".git" ]; then
@@ -10,7 +10,7 @@ if [ ! -e  ".git" ]; then
 	read -p "Initialize git repository? [Y/n] " INITIALIZE_GIT
 
 	if [[ $INITIALIZE_GIT = "n" || $INITIALIZE_GIT = "N" ]]; then
-		echo "No inicializar"
+		echo "Okay, not initializing git repository!"
 
 	else
 		echo " "
@@ -18,7 +18,6 @@ if [ ! -e  ".git" ]; then
 		read -p "Please add remote: " REMOTE_GIT
 		command git init > /dev/null
 		command git remote add origin $REMOTE_GIT
-		# command git switch -c $BRANCH_GIT
 		command git checkout -B $BRANCH_GIT --quiet
 		echo "Added remote $REMOTE_GIT. You can change it via git commands."
 	   	echo " "
@@ -29,11 +28,11 @@ if [ ! -e  ".git" ]; then
 	fi
 fi
 
-read -p "Bench press:" BENCH_KG
-read -p "Squat:" SQUAT_KG
-read -p "Deadlift:" DEADLIFT_KG
+read -p "Bench press: " BENCH_KG
+read -p "Squat: " SQUAT_KG
+read -p "Deadlift: " DEADLIFT_KG
 
-EGO_ECHO="$NOW\nBench press: $BENCH_KG Kgs \nSquat: $SQUAT_KG Kgs\nDeadlift: $DEADLIFT_KG Kgs\n"
+EGO_ECHO="$NOW\n\nBench press: $BENCH_KG Kgs\nSquat: $SQUAT_KG Kgs\nDeadlift: $DEADLIFT_KG Kgs\n\n-----"
 
 if test -f "$LOG_FILE"; then
 	LAST_ENTRANCE=$(tail -6 gym-logs.txt)
