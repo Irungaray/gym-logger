@@ -35,9 +35,9 @@ read -p "Deadlift: " DEADLIFT_KG
 EGO_ECHO="$NOW\n\nBench press: $BENCH_KG Kgs\nSquat: $SQUAT_KG Kgs\nDeadlift: $DEADLIFT_KG Kgs\n\n-----"
 
 if test -f "$LOG_FILE"; then
-	LAST_ENTRANCE=$(tail -6 gym-logs.txt)
+	LAST_ENTRANCE=$(tail -7 gym-logs.txt)
 	echo " "
-	echo "Good! last entrance was: $LAST_ENTRANCE"
+	echo "Good! last entrance was: \n$LAST_ENTRANCE"
 	echo " "
 fi
 
@@ -56,6 +56,3 @@ else
 	echo " "
 	echo "Attempted to push. If something went wrong, work it out with the git CLI."
 fi
-
-
-#
